@@ -12,8 +12,8 @@ RUN apt-get -y -q update \
 	matchbox-window-manager \
 	mesa-utils \
 	xorg \
-    # chown $HOME to workaround that the xorg installation creates a
-    # /home/jovyan/.cache directory owned by root
+# chown $HOME to workaround that the xorg installation creates a
+# /home/jovyan/.cache directory owned by root
  && chown -R $NB_UID:$NB_GID $HOME
 
 ARG VIRTUALGL_VERSION=3.1
@@ -35,11 +35,6 @@ RUN rm -rf /var/lib/apt/lists/*
 
 COPY jupyter_x11_app_proxy/ /opt/install/jupyter-x11-app-proxy/jupyter_x11_app_proxy/
 COPY setup.py MANIFEST.in README.md LICENSE /opt/install/jupyter-x11-app-proxy/
-
-RUN mkdir  -p /opt/install/insarviz \
- && git clone -b develop https://gricad-gitlab.univ-grenoble-alpes.fr/deformvis/insarviz.git /opt/install/insarviz
-COPY insarviz.svg /opt/install/insarviz/icon.svg
-RUN fix-permissions /opt/install
 
 USER $NB_USER
 RUN cd /opt/install/jupyter-x11-app-proxy \
