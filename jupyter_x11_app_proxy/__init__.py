@@ -4,16 +4,6 @@ import shlex
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-def setup_insarviz():
-    return setup_app(app="ts_viz", icon='/opt/install/insarviz/icon.svg',
-                     display=1)
-
-
-def setup_insarviz2():
-    return setup_app(app="ts_viz", icon='/opt/install/insarviz/icon.svg',
-                     display=2)
-
-
 def setup_app(app, icon, display=1):
     vnc_command = ' '.join(
         shlex.quote(p)

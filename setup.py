@@ -19,12 +19,6 @@ setup(
         "Programming Language :: Python :: 3",
     ],
     description="Run a desktop environments on Jupyter",
-    entry_points={
-        'jupyter_serverproxy_servers': [
-            'InsarViz = jupyter_x11_app_proxy:setup_insarviz',
-            'InsarVizTest = jupyter_x11_app_proxy:setup_insarviz2',
-        ]
-    },
     install_requires=[
         'jupyter-server-proxy>=1.4.0',
     ],
