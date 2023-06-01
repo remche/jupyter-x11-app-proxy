@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook:2023-05-08
+FROM jupyter/base-notebook:2023-05-08 as jupyter-insarviz
 LABEL maintainer="OSUG"
 
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
@@ -45,3 +45,5 @@ USER $NB_USER
 RUN cd /opt/install/jupyter-x11-app-proxy \
  && mamba install -y websockify \
  && pip install -e .
+RUN mamba env update --name base --file /opt/install/insarviz/environment.yaml \
+ && pip install --no-deps -e /opt/install/insarviz
