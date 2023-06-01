@@ -5,7 +5,7 @@ with open("README.md") as f:
 
 
 setup(
-    name="jupyter-remote-desktop-proxy",
+    name="jupyter-x11-app-proxy",
     packages=find_packages(),
     version='1.0.0',
     author="Jupyter Development Team",
@@ -21,7 +21,8 @@ setup(
     description="Run a desktop environments on Jupyter",
     entry_points={
         'jupyter_serverproxy_servers': [
-            'desktop = jupyter_remote_desktop_proxy:setup_desktop',
+            'InsarViz = jupyter_x11_app_proxy:setup_insarviz',
+            'InsarVizTest = jupyter_x11_app_proxy:setup_insarviz2',
         ]
     },
     install_requires=[
@@ -33,10 +34,6 @@ setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     platforms="Linux",
-    project_urls={
-        "Source": "https://github.com/jupyterhub/jupyter-remote-desktop-proxy/",
-        "Tracker": "https://github.com/jupyterhub/jupyter-remote-desktop-proxy/issues",
-    },
     python_requires=">=3.6",
     url="https://jupyter.org",
     zip_safe=False,

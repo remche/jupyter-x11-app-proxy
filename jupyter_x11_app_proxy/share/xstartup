@@ -1,0 +1,4 @@
+#!/bin/sh
+cd "$HOME"
+matchbox-window-manager -use_titlebar no &
+while /bin/true; do command $APP; done
