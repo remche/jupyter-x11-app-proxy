@@ -38,7 +38,7 @@ def setup_app(app, icon, display=1):
             'websockify',
             '-v',
             '--web',
-            os.path.join(HERE, 'share/web/noVNC-1.2.0'),
+            os.path.join(HERE, 'share/web/noVNC'),
             '--heartbeat',
             '30',
             f'{5900+display}',
@@ -47,7 +47,7 @@ def setup_app(app, icon, display=1):
         'environment': {'APP': app},
         'port': 5900+display,
         'timeout': 30,
-        'mappath': {'/': '/vnc_lite.html'},
+        'mappath': {'/': '/vnc_lite_patched.html'},
         'launcher_entry': {'icon_path': icon},
         'new_browser_tab': False,
     }
