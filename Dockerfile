@@ -11,8 +11,7 @@ RUN apt-get -y -q update \
 	git \
 	matchbox-window-manager \
 	mesa-utils \
-	# xdotool \
-       xorg \
+	xorg \
     # chown $HOME to workaround that the xorg installation creates a
     # /home/jovyan/.cache directory owned by root
  && chown -R $NB_UID:$NB_GID $HOME
