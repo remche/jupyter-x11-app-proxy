@@ -4,6 +4,19 @@ import shlex
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
+def setup_apps(apps):
+    config = {}
+    for index, app in enumerate(apps):
+        print(app)
+        config[app.get('name')] = setup_app(
+            app.get('app'),
+            app.get('icon'),
+            new_tab=app.get('new_tab') or False,
+            display=index + 1,
+        )
+    return config
+
+
 def setup_app(app, icon, new_tab=False, display=1):
     vnc_command = ' '.join(
         shlex.quote(p)
