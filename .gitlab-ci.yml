@@ -19,8 +19,8 @@ docker build:
   stage: build
   tags:
     - buildah
-  only:
-    - tags
+  # only:
+  #   - tags
   variables:
     DOCKERFILE: Dockerfile
     IMAGE_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
