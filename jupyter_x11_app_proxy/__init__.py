@@ -35,7 +35,7 @@ def setup_app(app, icon, display=1):
         ]
         + ['--', '/bin/sh', '-c', f'cd {os.getcwd()} && {vnc_command}'],
         'environment': {'APP': app},
-        'port': 5900+display,
+        'port': 5900 + display,
         'timeout': 30,
         'mappath': {'/': '/vnc_lite_patched.html'},
         'launcher_entry': {'icon_path': icon},
