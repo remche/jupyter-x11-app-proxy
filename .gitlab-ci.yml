@@ -1,0 +1,29 @@
+image: quay.io/buildah/stable:v1.30.0
+
+stages:
+  - build
+
+variables:
+  REGISTRY_LOGIN: buildah login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD
+  REGISTRY_LOGOUT: buildah logout
+  IMAGE_BUILD: buildah build-using-dockerfile --storage-driver vfs --format docker
+  IMAGE_PUSH: buildah push --storage-driver vfs
+
+before_script:
+  - $REGISTRY_LOGIN $CI_REGISTRY
+
+after_script:
+  - $REGISTRY_LOGOUT $CI_REGISTRY
+
+docker build:
+  stage: build
+  tags:
+    - buildah
+  only:
+    - tags
+  variables:
+    DOCKERFILE: Dockerfile
+    IMAGE_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+  script:
+    - $IMAGE_BUILD --file $DOCKERFILE $BUILD_ARG --tag $IMAGE_NAME .
+    - $IMAGE_PUSH $IMAGE_NAME $IMAGE_NAME
