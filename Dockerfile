@@ -35,6 +35,7 @@ RUN rm -rf /var/lib/apt/lists/*
 
 COPY jupyter_x11_app_proxy/ /opt/install/jupyter-x11-app-proxy/jupyter_x11_app_proxy/
 COPY setup.py MANIFEST.in README.md LICENSE /opt/install/jupyter-x11-app-proxy/
+RUN fix-permissions /opt/install
 
 USER $NB_USER
 RUN cd /opt/install/jupyter-x11-app-proxy \
