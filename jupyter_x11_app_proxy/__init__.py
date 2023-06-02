@@ -4,7 +4,7 @@ import shlex
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-def setup_app(app, icon, display=1):
+def setup_app(app, icon, new_tab=False, display=1):
     vnc_command = ' '.join(
         shlex.quote(p)
         for p in (
@@ -39,5 +39,5 @@ def setup_app(app, icon, display=1):
         'timeout': 30,
         'mappath': {'/': '/vnc_lite_patched.html'},
         'launcher_entry': {'icon_path': icon},
-        'new_browser_tab': False,
+        'new_browser_tab': new_tab,
     }
