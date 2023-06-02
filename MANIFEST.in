@@ -1,1 +1,1 @@
-graft jupyter_remote_desktop_proxy/share
+graft jupyter_x11_app_proxy/share
