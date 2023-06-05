@@ -12,12 +12,12 @@ def setup_apps(apps):
             app.get('app'),
             app.get('icon'),
             new_tab=app.get('new_tab') or False,
-            display=index + 1,
+            id=index + 1,
         )
     return config
 
 
-def setup_app(app, icon, new_tab=False, display=1):
+def setup_app(app, icon, new_tab=False, id=1):
     vnc_command = ' '.join(
         shlex.quote(p)
         for p in (
@@ -27,12 +27,16 @@ def setup_app(app, icon, new_tab=False, display=1):
                 '-xstartup',
                 os.path.join(HERE, 'share/xstartup'),
                 '-nohttpd',
+                '-name',
+                f'{app}-{id}',
                 # '-geometry',
                 # '1680x1050',
+                '-rfbport',
+                f'{5900+id}',
                 '-SecurityTypes',
                 'None',
                 '-fg',
-                f':{display}',
+                # f':{display}',
             ]
         )
     )
@@ -44,11 +48,11 @@ def setup_app(app, icon, new_tab=False, display=1):
             os.path.join(HERE, 'share/web/noVNC'),
             '--heartbeat',
             '30',
-            f'{5900+display}',
+            f'{5900+id}',
         ]
         + ['--', '/bin/sh', '-c', f'cd {os.getcwd()} && {vnc_command}'],
         'environment': {'APP': app},
-        'port': 5900 + display,
+        'port': 5900 + id,
         'timeout': 30,
         'mappath': {'/': '/vnc_lite_patched.html'},
         'launcher_entry': {'icon_path': icon},
