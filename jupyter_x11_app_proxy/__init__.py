@@ -7,7 +7,6 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 def setup_apps(apps):
     config = {}
     for index, app in enumerate(apps):
-        print(app)
         config[app.get('name')] = setup_app(
             app.get('app'),
             app.get('icon'),
