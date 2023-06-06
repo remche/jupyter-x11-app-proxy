@@ -18,4 +18,4 @@ jobs:
       with:
         context: images
         push: true
-        tags: remche/jupyter-x11-app-proxy:${{ steps.yq.outputs.result }}
+        tags: remche/jupyter-x11-app-proxy:$GITHUB_REF_NAME
