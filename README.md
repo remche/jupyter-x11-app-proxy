@@ -1,4 +1,4 @@
-# Jupyter X11 APP Proxy
+# Jupyter X11 App Proxy
 
 Run your X11 applications on Jupyter.
 
