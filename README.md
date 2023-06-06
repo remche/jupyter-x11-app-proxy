@@ -2,7 +2,7 @@
 
 Run your X11 applications on Jupyter.
 
-This is heavily inspired by [Jupyter Remote Desktop Proxy](Jupyter Remote Desktop Proxy).
+This is heavily inspired by [Jupyter Remote Desktop Proxy](https://github.com/jupyterhub/jupyter-remote-desktop-proxy/).
 
 - Easily configure (name, icon...) several applications ;
 - Run on notebook or browser window ;
