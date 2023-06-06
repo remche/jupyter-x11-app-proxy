@@ -16,6 +16,5 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - uses: docker/build-push-action@v4
       with:
-        context: images
         push: true
         tags: remche/jupyter-x11-app-proxy:${{  github.ref_name }}
