@@ -1,7 +1,4 @@
 FROM docker.io/jupyter/base-notebook:2023-05-08
-LABEL maintainer="OSUG"
-
-RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
 
 USER root
 
