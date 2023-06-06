@@ -18,4 +18,4 @@ jobs:
       with:
         context: images
         push: true
-        tags: remche/jupyter-x11-app-proxy:$GITHUB_REF_NAME
+        tags: remche/jupyter-x11-app-proxy:${{  github.ref_name }}
