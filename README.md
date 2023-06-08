@@ -19,7 +19,7 @@ It runs a VNC server, Xorg server and Matchbox Window manager for each configure
 The easiest way is to use Docker image embedding dependencies listed above as your base image.
 
 ```Dockerfile
-FROM remche/jupyter-x11-app-proxy
+FROM remche/jupyter-x11-app-proxy:2023-06-06
 ```
 
 You can find a dummy example in the `examples` folder.
